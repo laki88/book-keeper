@@ -3,13 +3,13 @@ info:
   title: book-keeper
   version: 1.0.0
 paths:
-  "/inventory/delete/{inventory-code}":
+  "/inventory/delete/{inventory-id}":
     delete:
       summary: delete an inventory item
       produces:
         - application/json
       parameters:
-        - name: inventory-code
+        - name: inventory-id
           required: true
           type: string
           in: path
@@ -47,8 +47,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - description: invoice number
-          name: invoice-no
+        - description: invoice id
+          name: invoice-id
           type: string
           required: false
           in: formData
@@ -105,13 +105,13 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  "/inventory/get/{inventory-code}":
+  "/inventory/get/{inventory-id}":
     get:
       summary: get inventory data by id
       produces:
         - application/json
       parameters:
-        - name: inventory-code
+        - name: inventory-id
           required: true
           type: string
           in: path
@@ -237,17 +237,30 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: inventory-code
+        - description: inventory id
+          name: inventory-id
           type: string
-          required: true
+          required: false
           in: formData
-        - name: name
-          type: string
+        - description: vendor name
+          name: name
           required: true
+          type: string
           in: formData
-        - name: item-price
-          type: string
+        - description: inventory entry added date
+          name: date
           required: true
+          type: string
+          in: formData
+        - description: vendor address
+          name: address
+          required: true
+          type: string
+          in: formData
+        - description: inventory data
+          name: inventory-table
+          required: true
+          type: string
           in: formData
       consumes:
         - application/x-www-form-urlencoded
@@ -279,13 +292,13 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  "/inventory/update/{inventory-code}":
+  "/inventory/update/{inventory-id}":
     post:
       summary: update an inventory item
       produces:
         - application/json
       parameters:
-        - name: inventory-code
+        - name: inventory-id
           required: true
           type: string
           in: path
@@ -373,26 +386,32 @@ definitions:
   Invoice:
     type: object
     properties:
-      invoice-no:
+      invoice-id:
         type: string
-        description: invoice code
+        description: invoice identifier
       invoice-table:
         type: string
-        description: data table related to inoice in json format
+        description: data table related to invoice in json format
       customer:
         $ref: "#/definitions/Customer"
+      date:
+        type: string
+        description: invoice created date
+
   Inventory:
     type: object
     properties:
-      inventory-code:
+      inventory-id:
         type: string
-        description: inventory code
-      name:
+        description: grn no
+      inventory-table:
         type: string
-        description: name of the item
-      item-price:
-        type: integer
-        format: int64
+        description: data table related to specific grn in json format
+      vendor:
+        $ref: "#/definitions/Vendor"
+      date:
+        type: string
+        description: inventory created date
   Customer:
     type: object
     description: customer data
@@ -416,6 +435,29 @@ definitions:
       faxNumber:
         type: string
         description: customer fax number
+  Vendor:
+      type: object
+      description: vendor data
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: vendor id
+        name:
+          type: string
+          description: vendor name
+        address:
+          type: string
+          description: vendor address
+        emailAddress:
+          type: string
+          description: vendor email address
+        phoneNumber:
+          type: string
+          description: vendor phone number
+        faxNumber:
+          type: string
+          description: vendor fax number
   Error:
     type: object
     properties:
