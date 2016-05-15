@@ -26,7 +26,9 @@ var makeAmountColumn = function(current_cell, table, firstColumn, secondColumn, 
         }
     }
     else if(current_col_index == secondColumn.index()){
-
+        if(current_cell.text().match(/^\d+$/) && getTableCellByRowAndCol(table, current_row_index, firstColumn.index()).text().match(/^\d+$/)){
+            getTableCellByRowAndCol(table, current_row_index, amountColumn.index()).html(current_cell.text()* getTableCellByRowAndCol(table, current_row_index, firstColumn.index()).text());
+        }
     }
     else{
         return;
