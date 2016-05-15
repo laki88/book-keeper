@@ -7,7 +7,6 @@ import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Error;
 import io.swagger.model.Inventory;
-import io.swagger.model.Payload1;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -20,22 +19,22 @@ import com.sun.jersey.multipart.FormDataParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2016-02-27T14:28:47.690Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2016-05-10T16:42:02.923Z")
 public abstract class InventoryApiService {
   
-      public abstract Response inventoryAddPut(String inventoryCode,String name,String itemPrice,SecurityContext securityContext)
+      public abstract Response inventoryAddPut(String name,String date,String address,String inventoryTable,String inventoryId,SecurityContext securityContext)
       throws NotFoundException;
   
-      public abstract Response inventoryDeleteInventoryCodeDelete(String inventoryCode,SecurityContext securityContext)
+      public abstract Response inventoryDeleteInventoryIdDelete(String inventoryId,SecurityContext securityContext)
       throws NotFoundException;
   
-      public abstract Response inventoryGetInventoryCodeGet(String inventoryCode,SecurityContext securityContext)
+      public abstract Response inventoryGetInventoryIdGet(String inventoryId,SecurityContext securityContext)
       throws NotFoundException;
   
       public abstract Response inventoryGetallGet(SecurityContext securityContext)
       throws NotFoundException;
   
-      public abstract Response inventoryUpdateInventoryCodePost(String inventoryCode,Payload1 payload,SecurityContext securityContext)
+      public abstract Response inventoryUpdateInventoryIdPost(String inventoryId,Object payload,SecurityContext securityContext)
       throws NotFoundException;
   
 }

@@ -33,7 +33,9 @@ public class LoginHandler {
 		if("admin".equals(userName) && "admin".equals(password)){
 			HttpSession session = request.getSession(true);
 			session.setAttribute("authenticated", true);
+			session.setAttribute("user", "admin");
 			obj.put("authenticated", true);
+			obj.put("user", "admin");
 			//jsonResponse.put("authenticated", true);
 			return Response.status(200).entity(obj.toString()).build();
 		}

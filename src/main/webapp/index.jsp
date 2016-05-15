@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <%
         session = request.getSession(false);// don't create if it doesn't exist
         String pageURL = "/";
@@ -35,7 +36,7 @@
                 <img src="images/round_arrow.png" class="round_arrow" id="purchase_order_to_gin">
                 <div onclick="location.href=#" class="event_box estimate" id="gin">GIN</div>
                 <img src="images/right_arrow.png" class="right-arrow" id="grn_to_gin">
-                <div onclick="location.href=#" class="event_box estimate" id="grn">GRN</div>
+                <div onclick="location.href='inventory/add.jsp'" class="event_box estimate" id="grn">GRN</div>
                 <img src="images/right_arrow.png" class="right-arrow" id="invoices_to_receive_payments">
                 <img src="images/right_arrow.png" class="right-arrow" id="receive_payments_to_deposit">
                 <img src="images/three_side_arrow.png" class="three_side_arrow" id="gin_to_enter_and_pay_bill">

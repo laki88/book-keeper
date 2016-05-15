@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head lang="en">
+<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
@@ -13,18 +13,23 @@
     <script src="../js/custom.js"></script>
 
     <title>create an invoice</title>
+    <script>
+        $(function(){
+            $("#header").load("../header.jsp");
+            $("#footer").load("../footer.jsp");
+        });
+    </script>
 </head>
 <body>
-
-
-<div class="container">
+<div id="header"></div>
+<div class="container container-top">
     <form name="invoice_form" id="invoice_form" method="put" action="../services/invoice/add">
-        <div class="row">
+        <div class="row row-bottom-margin">
             <div class="col-md-5">
                 <div class="form-group">
                     <label for="name" class="control-label col-md-4">Name :</label>
                     <div class="col-md-8">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Lakshman">
+                        <input type="text" class="form-control component-position" id="name" name="name" placeholder="Lakshman">
                     </div>
                 </div>
             </div>
@@ -38,12 +43,12 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row row-bottom-margin">
             <div class="col-md-5">
                 <div class="form-group">
                     <label for="address" class="control-label col-md-4">Address :</label>
                     <div class="col-md-8">
-                        <textarea id="address" name="address" class="form-control" rows="5" cols="30">  </textarea>
+                        <textarea id="address" name="address" class="form-control text-padding component-position" rows="5" cols="30">  </textarea>
                     </div>
                 </div>
             </div>
@@ -57,9 +62,9 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8" style="height:292px;overflow:auto;">
+        <div class="row row-bottom-margin">
+            <div class="col-md-1"></div>
+            <div class="col-md-11" style="height:292px;overflow:auto;">
                 <table class="table-striped" id="invoice-table" name="invoice-table">
                     <input type="hidden" name="invoice-table" value=""/>
                     <thead>
@@ -75,20 +80,47 @@
                     <tbody></tbody>
                 </table>
             </div>
-            <div class="col-md-2"></div>
         </div>
-        <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-4">
-                <input type="submit" name="save_and_close" class="btn btn-primary" value="Save & Close">
-                <input type="submit" name="save_and_new" class="btn btn-primary" value="Save & New">
-                <input type="button" class="btn btn-primary clear-button" value="Clear">
+        <div class="row row-bottom-margin">
+            <div class="col-md-6 col-md-offset-7">
+                <div class="form-group">
+                    <label class="col-md-4" for="total">Total :</label>
+                    <div class="col-md-6">
+                        <input class="form-control col-md-3" type="text" id="total" disabled>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2"></div>
+        </div>
+        <div class="row row-bottom-margin">
+            <div class="col-md-6 col-md-offset-7">
+                <div class="form-group">
+                    <label class="col-md-4" for="payment">Payment :</label>
+                    <div class="col-md-6">
+                        <input class="form-control col-md-3" type="text" id="payment">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-bottom-margin">
+            <div class="col-md-6 col-md-offset-7">
+                <div class="form-group">
+                    <label class="col-md-4" for="balance">Balance :</label>
+                    <div class="col-md-6">
+                        <input class="form-control col-md-3" type="text" id="balance" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-bottom-margin">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <input type="submit" name="save_and_close" class="btn btn-primary form-button-group pull-right" value="Save & Close">
+                <input type="submit" name="save_and_new" class="btn btn-primary form-button-group pull-right" value="Save & New">
+                <input type="button" class="btn btn-primary clear-button form-button-group pull-right" value="Clear">
+            </div>
         </div>
     </form>
 </div>
-
-
+<div id="footer"></div>
 </body>
 </html>

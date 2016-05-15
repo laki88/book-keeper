@@ -256,3 +256,26 @@ a {
     height:300px;
 }
 
+.row {
+    margin-top: 20px;
+}
+
+.form-button-group {
+    margin-left: 10px;
+}
+
+.row-bottom-margin {
+    margin-bottom: -10px;
+}
+
+.container-top {
+    margin-top: -20px;
+}
+
+.text-padding {
+    padding: 5px;
+}
+
+.component-position {
+    margin-left: -70px;
+}

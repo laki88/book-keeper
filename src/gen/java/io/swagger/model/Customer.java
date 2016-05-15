@@ -23,6 +23,10 @@ public class Customer   {
   private String phoneNumber = null;
   private String faxNumber = null;
 
+  public Customer(String name) {
+    this.name = name;
+  }
+
   
   /**
    * customer id
