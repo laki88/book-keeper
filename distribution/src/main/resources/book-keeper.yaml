@@ -1,0 +1,470 @@
+swagger: "2.0"
+info:
+  title: book-keeper
+  version: 1.0.0
+paths:
+  "/inventory/delete/{inventory-id}":
+    delete:
+      summary: delete an inventory item
+      produces:
+        - application/json
+      parameters:
+        - name: inventory-id
+          required: true
+          type: string
+          in: path
+      consumes:
+        - application/json
+      responses:
+        204:
+          description: inventory item deleted
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  "/customer/delete/{customer-id}":
+    delete:
+      summary: delete a customer
+      produces:
+        - application/json
+      parameters:
+        - name: customer-id
+          required: true
+          type: string
+          in: path
+      consumes:
+        - application/json
+      responses:
+        204:
+          description: customer deleted
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /invoice/add:
+    put:
+      summary: add an invoice
+      produces:
+        - application/json
+      parameters:
+        - description: invoice id
+          name: invoice-id
+          type: string
+          required: false
+          in: formData
+        - description: customer name
+          name: name
+          required: true
+          type: string
+          in: formData
+        - description: invoice added date
+          name: date
+          required: true
+          type: string
+          in: formData
+        - description: customer address
+          name: address
+          required: true
+          type: string
+          in: formData
+        - description: purchasing order number
+          name: PONumber
+          required: false
+          type: string
+          in: formData
+        - description: invoice data
+          name: invoice-table
+          required: true
+          type: string
+          in: formData
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        204:
+          description:  invoice added
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /invoice/getall:
+    get:
+      summary: get all invoice data
+      description: return all invoice data
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      responses:
+        200:
+          description: An array of invoices
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Invoice'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  "/inventory/get/{inventory-id}":
+    get:
+      summary: get inventory data by id
+      produces:
+        - application/json
+      parameters:
+        - name: inventory-id
+          required: true
+          type: string
+          in: path
+      consumes:
+        - application/json
+      responses:
+        200:
+          description: inventory item response
+          schema:
+            $ref: "#/definitions/Inventory"
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inventory/getall:
+    get:
+      summary: get all inventory data
+      description: return all inventory items
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      responses:
+        200:
+          description: An array of inventory items
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Inventory'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  "/customer/update/{customer-id}":
+    post:
+      summary: update a customer
+      produces:
+        - application/json
+      parameters:
+        - name: customer-id
+          required: true
+          type: string
+          in: path
+        - schema:
+            type: object
+          description: Request Body
+          name: Payload
+          required: false
+          in: body
+      consumes:
+        - application/json
+      responses:
+        204:
+          description: customer updated
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /customer/add:
+    put:
+      summary: add a customer
+      produces:
+        - application/json
+      parameters:
+        - description: customer name
+          name: name
+          required: true
+          type: string
+          in: formData
+        - description: customer address
+          name: address
+          required: false
+          type: string
+          in: formData
+        - description: customer email
+          name: email-address
+          required: false
+          type: string
+          in: formData
+        - description: customer phone number
+          name: phone-number
+          required: false
+          type: string
+          in: formData
+        - description: customer fax number
+          name: fax-number
+          required: false
+          type: string
+          in: formData
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        204:
+          description:  customer added
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  "/customer/get/{customer-id}":
+    get:
+      summary: get customer data by id
+      produces:
+        - application/json
+      parameters:
+        - name: customer-id
+          required: true
+          type: string
+          in: path
+      consumes:
+        - application/json
+      responses:
+        200:
+          description: customer response
+          schema:
+            $ref: "#/definitions/Customer"
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inventory/add:
+    put:
+      summary: add an inventory item
+      produces:
+        - application/json
+      parameters:
+        - description: inventory id
+          name: inventory-id
+          type: string
+          required: false
+          in: formData
+        - description: vendor name
+          name: name
+          required: true
+          type: string
+          in: formData
+        - description: inventory entry added date
+          name: date
+          required: true
+          type: string
+          in: formData
+        - description: vendor address
+          name: address
+          required: true
+          type: string
+          in: formData
+        - description: inventory data
+          name: inventory-table
+          required: true
+          type: string
+          in: formData
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        204:
+          description:  inventory item added
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  "/invoice/get/{invoice-id}":
+    get:
+      summary: get invoice data by id
+      produces:
+        - application/json
+      parameters:
+        - name: invoice-id
+          type: string
+          required: true
+          in: path
+      consumes:
+        - application/json
+      responses:
+        200:
+          description: invoice response
+          schema:
+            $ref: "#/definitions/Invoice"
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  "/inventory/update/{inventory-id}":
+    post:
+      summary: update an inventory item
+      produces:
+        - application/json
+      parameters:
+        - name: inventory-id
+          required: true
+          type: string
+          in: path
+        - schema:
+            type: object
+          description: Request Body
+          name: Payload
+          required: false
+          in: body
+      consumes:
+        - application/json
+      responses:
+        204:
+          description: inventory updated
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  "/invoice/update/{invoice-id}":
+    post:
+      summary: "update an invoice "
+      produces:
+        - application/json
+      parameters:
+        - name: invoice-id
+          type: string
+          required: true
+          in: path
+        - schema:
+            type: object
+          description: Request Body
+          name: Payload
+          required: true
+          in: body
+      consumes:
+        - application/json
+      responses:
+        204:
+          description: invoice updated
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  "/invoice/delete/{invoice-id}":
+    delete:
+      summary: delete an invoice
+      produces:
+        - application/json
+      parameters:
+        - name: invoice-id
+          type: string
+          required: true
+          in: path
+      consumes:
+        - application/json
+      responses:
+        204:
+          description: invoice deleted
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /customer/getall:
+    get:
+      summary: get all customers
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      responses:
+        200:
+          description: An array of customer
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Customer'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+################################################################################
+#                                 Definitions                                  #
+################################################################################
+definitions:
+  Invoice:
+    type: object
+    properties:
+      invoice-id:
+        type: string
+        description: invoice identifier
+      invoice-table:
+        type: string
+        description: data table related to invoice in json format
+      customer:
+        $ref: "#/definitions/Customer"
+      date:
+        type: string
+        description: invoice created date
+
+  Inventory:
+    type: object
+    properties:
+      inventory-id:
+        type: string
+        description: grn no
+      inventory-table:
+        type: string
+        description: data table related to specific grn in json format
+      vendor:
+        $ref: "#/definitions/Vendor"
+      date:
+        type: string
+        description: inventory created date
+  Customer:
+    type: object
+    description: customer data
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: customer id
+      name:
+        type: string
+        description: customer name
+      address:
+        type: string
+        description: customer address
+      emailAddress:
+        type: string
+        description: customer email address
+      phoneNumber:
+        type: string
+        description: customer phone number
+      faxNumber:
+        type: string
+        description: customer fax number
+  Vendor:
+      type: object
+      description: vendor data
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: vendor id
+        name:
+          type: string
+          description: vendor name
+        address:
+          type: string
+          description: vendor address
+        emailAddress:
+          type: string
+          description: vendor email address
+        phoneNumber:
+          type: string
+          description: vendor phone number
+        faxNumber:
+          type: string
+          description: vendor fax number
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string

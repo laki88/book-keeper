@@ -17,31 +17,33 @@ import javax.ws.rs.core.SecurityContext;
 @Path("/login")
 public class LoginHandler {
 
-	@Context private HttpServletRequest request;
-	@Context private HttpServletResponse response;
+    @Context
+    private HttpServletRequest request;
+    @Context
+    private HttpServletResponse response;
 
-	@POST
-	@Path("/login")
-	public Response authenticate(@FormParam("username")  String userName, @FormParam("password")  String password, @Context SecurityContext securityContext)
-			throws JSONException {
+    @POST
+    @Path("/login")
+    public Response authenticate(@FormParam("username") String userName, @FormParam("password") String password, @Context SecurityContext securityContext)
+            throws JSONException {
 
-		//String jsonResponse;
-		Gson gson = new Gson();
-		JSONObject obj = new JSONObject();
+        //String jsonResponse;
+        Gson gson = new Gson();
+        JSONObject obj = new JSONObject();
 
 
-		if("admin".equals(userName) && "admin".equals(password)){
-			HttpSession session = request.getSession(true);
-			session.setAttribute("authenticated", true);
-			session.setAttribute("user", "admin");
-			obj.put("authenticated", true);
-			obj.put("user", "admin");
-			//jsonResponse.put("authenticated", true);
-			return Response.status(200).entity(obj.toString()).build();
-		}
-			//jsonResponse.put("authenticated", false);
-		obj.put("authenticated", false);
+        if ("admin".equals(userName) && "admin".equals(password)) {
+            HttpSession session = request.getSession(true);
+            session.setAttribute("authenticated", true);
+            session.setAttribute("user", "admin");
+            obj.put("authenticated", true);
+            obj.put("user", "admin");
+            //jsonResponse.put("authenticated", true);
+            return Response.status(200).entity(obj.toString()).build();
+        }
+        //jsonResponse.put("authenticated", false);
+        obj.put("authenticated", false);
 
-		return Response.status(200).entity(obj.toString()).build();
-	}
+        return Response.status(200).entity(obj.toString()).build();
+    }
 }

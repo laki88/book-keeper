@@ -3,27 +3,27 @@
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-  <display-name>Archetype Created Web Application</display-name>
-  <!--url redirection should happen in following way
-    1. create module and action separation
-        ex : module - invoice
-             action -add
+    <display-name>Archetype Created Web Application</display-name>
+    <!--url redirection should happen in following way
+      1. create module and action separation
+          ex : module - invoice
+               action -add
 
-    2.  handle all redirection at Main class
-        ex : map servlet class as /invoice/*
-  -->
+      2.  handle all redirection at Main class
+          ex : map servlet class as /invoice/*
+    -->
     <listener>
         <listener-class>com.laki.InitH2DBServer</listener-class>
     </listener>
 
     <!--<servlet>-->
-        <!--<servlet-name>Main</servlet-name>-->
-        <!--<servlet-class>com.laki.Main</servlet-class>-->
+    <!--<servlet-name>Main</servlet-name>-->
+    <!--<servlet-class>com.laki.Main</servlet-class>-->
     <!--</servlet>-->
 
     <!--<servlet>-->
-        <!--<servlet-name>Invoice</servlet-name>-->
-        <!--<servlet-class>com.laki.InvoiceServlet</servlet-class>-->
+    <!--<servlet-name>Invoice</servlet-name>-->
+    <!--<servlet-class>InvoiceServlet</servlet-class>-->
     <!--</servlet>-->
 
     <servlet>
@@ -31,7 +31,8 @@
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>io.swagger.jaxrs.json;io.swagger.jaxrs.listing;io.swagger.api, com.laki.controllers</param-value>
+            <param-value>io.swagger.jaxrs.json;io.swagger.jaxrs.listing;io.swagger.api, com.laki.controllers
+            </param-value>
         </init-param>
         <init-param>
             <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
@@ -77,32 +78,32 @@
 
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>Main</servlet-name>-->
-        <!--<url-pattern>/invoice</url-pattern>-->
+    <!--<servlet-name>Main</servlet-name>-->
+    <!--<url-pattern>/invoice</url-pattern>-->
     <!--</servlet-mapping>-->
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>Invoice</servlet-name>-->
-        <!--<url-pattern>/invoice/add</url-pattern>-->
+    <!--<servlet-name>Invoice</servlet-name>-->
+    <!--<url-pattern>/invoice/add</url-pattern>-->
     <!--</servlet-mapping>-->
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>Main</servlet-name>-->
-        <!--<url-pattern>/billing</url-pattern>-->
+    <!--<servlet-name>Main</servlet-name>-->
+    <!--<url-pattern>/billing</url-pattern>-->
     <!--</servlet-mapping>-->
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>Main</servlet-name>-->
-        <!--<url-pattern>/welcome</url-pattern>-->
+    <!--<servlet-name>Main</servlet-name>-->
+    <!--<url-pattern>/welcome</url-pattern>-->
     <!--</servlet-mapping>-->
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>Main</servlet-name>-->
-        <!--<url-pattern>/customer</url-pattern>-->
+    <!--<servlet-name>Main</servlet-name>-->
+    <!--<url-pattern>/customer</url-pattern>-->
     <!--</servlet-mapping>-->
     <!--<servlet-mapping>-->
-        <!--<servlet-name>Main</servlet-name>-->
-        <!--<url-pattern>/customer/add</url-pattern>-->
+    <!--<servlet-name>Main</servlet-name>-->
+    <!--<url-pattern>/customer/add</url-pattern>-->
     <!--</servlet-mapping>-->
 
 </web-app>

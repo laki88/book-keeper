@@ -20,13 +20,14 @@ public class InventoryDao {
         try {
             JdbcDataSource ds = new JdbcDataSource();
             String tomcatHome = System.getProperty("catalina.base");
-            ds.setURL("jdbc:h2:"+tomcatHome+"/database/book-keeper");
+            ds.setURL("jdbc:h2:" + tomcatHome + "/database/book-keeper");
             ds.setUser("sa");
             ds.setPassword("sa");
             Connection conn = ds.getConnection();
             Statement stmt = conn.createStatement();
             Vendor vendor = inventory.getVendor();
-            stmt.executeUpdate("INSERT INTO INVENTORY");
+            //stmt.executeUpdate("INSERT INTO VENDOR (NAME, ADDRESS, TELEPHONE_NO) VALUES ('"+vendor.getName()+"','"+vendor.getAddress()+"','"+vendor.getPhoneNumber()+"')");
+
 
 //            stmt.executeUpdate("INSERT  INTO INVENTORY (NAME, ADDRESS, TELEPHONE_NO) VALUES ('"+
 //                    customer.getName()+"','"+customer.getAddress()+"','"+customer.getPhoneNumber()+"')");

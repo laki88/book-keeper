@@ -6,10 +6,9 @@ import io.swagger.api.impl.InvoiceApiServiceImpl;
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2016-05-10T16:42:02.923Z")
 public class InvoiceApiServiceFactory {
 
-   private final static InvoiceApiService service = new InvoiceApiServiceImpl();
+    private final static InvoiceApiService service = new InvoiceApiServiceImpl();
 
-   public static InvoiceApiService getInvoiceApi()
-   {
-      return service;
-   }
+    public static InvoiceApiService getInvoiceApi() {
+        return service;
+    }
 }

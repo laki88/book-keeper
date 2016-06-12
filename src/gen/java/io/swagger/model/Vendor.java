@@ -33,6 +33,7 @@ public class Vendor {
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -47,6 +48,7 @@ public class Vendor {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -61,6 +63,7 @@ public class Vendor {
     public String getAddress() {
         return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -75,6 +78,7 @@ public class Vendor {
     public String getEmailAddress() {
         return emailAddress;
     }
+
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
@@ -89,6 +93,7 @@ public class Vendor {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -103,10 +108,10 @@ public class Vendor {
     public String getFaxNumber() {
         return faxNumber;
     }
+
     public void setFaxNumber(String faxNumber) {
         this.faxNumber = faxNumber;
     }
-
 
 
     @Override
