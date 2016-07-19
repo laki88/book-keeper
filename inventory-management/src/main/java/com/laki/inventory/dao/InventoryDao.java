@@ -11,7 +11,7 @@ public class InventoryDao {
 
     private static JdbcDataSource dataSource;
 
-    private static InventoryDao inventoryDao;
+    private static InventoryDao inventoryDao = new InventoryDao();
 
     private InventoryDao() {
         dataSource = new JdbcDataSource();
@@ -25,7 +25,7 @@ public class InventoryDao {
         return inventoryDao;
     }
 
-    public static boolean saveItem(InventoryItem inventoryItem) {
+    public boolean saveItem(InventoryItem inventoryItem) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -64,7 +64,7 @@ public class InventoryDao {
         return true;
     }
 
-    public static InventoryItem getItem(String inventoryCode) {
+    public InventoryItem getItem(String inventoryCode) {
 
         InventoryItem inventoryItem = new InventoryItem();
         inventoryItem.setInventoryCode(inventoryCode);
@@ -114,7 +114,7 @@ public class InventoryDao {
     }
 
 
-    public static boolean updateItem(InventoryItem inventoryItem) {
+    public boolean updateItem(InventoryItem inventoryItem) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -152,7 +152,7 @@ public class InventoryDao {
         return true;
     }
 
-    public static boolean deleteItem(String inventoryCode) {
+    public boolean deleteItem(String inventoryCode) {
 
         Connection conn = null;
         PreparedStatement stmt = null;

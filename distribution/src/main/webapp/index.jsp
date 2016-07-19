@@ -1,18 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%@ include file="common.jsp" %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <%
-        session = request.getSession(false);// don't create if it doesn't exist
-        String pageURL = "/";
-        if (session.isNew() || session.getAttribute("authenticated") == null || false == (boolean) session.getAttribute("authenticated")) {
-            response.sendRedirect("login/login.jsp");
-        }
-    %>
     <script>
         $(function () {
             $("#header").load("header.jsp");

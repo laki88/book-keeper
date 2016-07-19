@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <%@ include file="../common.jsp" %>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="../css/custom.css">

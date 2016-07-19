@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <%@ include file="../common.jsp" %>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="../css/custom.css">
@@ -24,6 +25,16 @@
 <div id="header"></div>
 <div class="container container-top">
     <form name="invoice_form" id="invoice_form" method="put" action="../services/invoice/add">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="invoiceNo" class="control-label col-md-4">Invoice Number :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="invoiceNo" name="invoiceNo" value="1" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row row-bottom-margin">
             <div class="col-md-5">
                 <div class="form-group">

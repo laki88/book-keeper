@@ -8,8 +8,14 @@ import com.laki.inventory.service.InventoryService;
 public class InventoryServiceImpl extends InventoryService {
 
 
-    public boolean persistItem(String inventoryCode, String description, String itemName, int priceOfItem, String amount) {
-        return false;
+    public boolean persistItem(String inventoryCode, String description, String itemName, int priceOfItem, int amount) {
+        InventoryItem inventoryItem = new InventoryItem();
+        inventoryItem.setInventoryCode(inventoryCode);
+        inventoryItem.setDescription(description);
+        inventoryItem.setItemName(itemName);
+        inventoryItem.setPriceOfItem(priceOfItem);
+        inventoryItem.setAmount(amount);
+        return InventoryDao.getInstance().saveItem(inventoryItem);
     }
 
     public boolean updateItem(InventoryItem inventoryItem) {

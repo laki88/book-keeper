@@ -8,7 +8,7 @@ import com.laki.inventory.dao.InventoryDao;
  */
 public abstract class InventoryService {
 
-    public boolean persistItem(String inventoryCode, String description, String itemName, int priceOfItem, String amount) {
+    public boolean persistItem(String inventoryCode, String description, String itemName, int priceOfItem, int amount) {
         return false;
     }
 

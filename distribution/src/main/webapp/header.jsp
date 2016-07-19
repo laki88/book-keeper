@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+    String webAppRoot = request.getContextPath();
     session = request.getSession(false);
     String user = null;
 
@@ -61,13 +62,13 @@
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-left">
                 <li class="active">
-                    <a href="/book-keeper">Home</a>
+                    <a href="<%=webAppRoot%>">Home</a>
                 </li>
                 <li>
-                    <a href="/book-keeper/invoice/invoice.jsp">Invoice</a>
+                    <a href="<%=webAppRoot%>/invoice/invoice.jsp">Invoice</a>
                 </li>
                 <li>
-                    <a href="/book-keeper/inventory/add.jsp">Inventory</a>
+                    <a href="<%=webAppRoot%>/inventory/add.jsp">Inventory</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-left pull-right">
@@ -79,12 +80,12 @@
                         <%=
                         user
                         %>
-                        <img src="images/down_arrow.png" width="15px" height="15px">
+                        <img src="<%=webAppRoot%>/images/down_arrow.png" width="15px" height="15px">
                     </a>
                     <div class="dropdown-menu pull-right">
                         <ul class="nav">
                             <li>
-                                <a href="/book-keeper/login/logout.jsp">Logout</a>
+                                <a href="<%=webAppRoot%>/login/logout.jsp">Logout</a>
                             </li>
                         </ul>
                     </div>
